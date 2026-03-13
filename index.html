@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deep Traffic Lab · 未来交通实验室</title>
-    <!-- 使用简洁现代的字体，Inter为主，fallback为系统字体 -->
+    <title>Deep Traffic Lab – 官网</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-    <!-- Font Awesome 6 (免费图标库) 用于点缀科技感图标 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     <style>
         * {
             margin: 0;
@@ -18,635 +16,637 @@
         }
 
         body {
-            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: #0b0f17;
-            color: #e1e7f0;
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafc;
+            color: #1f2937;
             line-height: 1.5;
             scroll-behavior: smooth;
         }
 
-        /* 科技深色背景 + 细微网格纹理 */
-        .bg-grid {
-            background-image: 
-                linear-gradient(rgba(20, 120, 255, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(20, 120, 255, 0.02) 1px, transparent 1px);
-            background-size: 40px 40px;
-            background-position: center center;
-        }
-
         .container {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 32px;
         }
 
-        /* 导航栏简单清爽 */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 2rem;
-            background-color: rgba(11, 15, 23, 0.8);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(70, 130, 255, 0.2);
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02), 0 2px 6px rgba(0,20,30,0.05);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 50;
+            backdrop-filter: blur(2px);
         }
 
-        .logo {
+        .header-inner {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            font-weight: 700;
-            font-size: 1.5rem;
-            letter-spacing: -0.02em;
+            justify-content: space-between;
+            height: 80px;
         }
 
-        .logo-icon {
-            color: #3b82f6;
-            font-size: 2rem;
-        }
-
-        .logo span {
-            background: linear-gradient(135deg, #a5c9ff, #60a5fa);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .nav-links {
+        .logo-area {
             display: flex;
-            gap: 2.5rem;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .lab-icon {
+            background: #0b2b40;
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aad3e6;
+            font-size: 22px;
+        }
+
+        .lab-name {
+            font-weight: 600;
+            font-size: 1.4rem;
+            letter-spacing: -0.01em;
+            color: #0a2942;
+        }
+        .lab-name span {
+            color: #2b6f9e;
             font-weight: 500;
         }
 
-        .nav-links a {
-            color: #b0c7ed;
+        .nav-menu {
+            display: flex;
+            gap: 36px;
+            font-weight: 500;
+        }
+        .nav-menu a {
             text-decoration: none;
+            color: #2c3e50;
             font-size: 1rem;
             transition: color 0.2s;
+            padding: 6px 0;
             border-bottom: 2px solid transparent;
-            padding-bottom: 4px;
+        }
+        .nav-menu a:hover {
+            color: #1f6e9f;
+            border-bottom-color: #1f6e9f;
         }
 
-        .nav-links a:hover {
-            color: #ffffff;
-            border-bottom-color: #3b82f6;
+        .contact-wrapper {
+            position: relative;
         }
 
-        /* 按钮样式 */
-        .btn {
-            display: inline-block;
-            background: transparent;
-            border: 1px solid #3b82f6;
-            color: #3b82f6;
-            padding: 0.6rem 1.5rem;
+        .contact-btn {
+            background: #0b2b40;
+            color: white;
+            border: none;
+            padding: 10px 24px;
             border-radius: 40px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: background 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 8px rgba(0,40,60,0.12);
+        }
+        .contact-btn i {
+            font-size: 0.9rem;
+        }
+        .contact-btn:hover {
+            background: #124c6e;
+            box-shadow: 0 8px 16px rgba(0,60,90,0.15);
+        }
+
+        .contact-popup {
+            position: absolute;
+            top: calc(100% + 12px);
+            right: 0;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+            width: 280px;
+            padding: 24px 20px;
+            z-index: 100;
+            border: 1px solid rgba(0,0,0,0.04);
+            transition: opacity 0.25s ease, transform 0.3s ease;
+            opacity: 0;
+            transform: translateY(-6px);
+            pointer-events: none;
+        }
+        .contact-popup.show {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .contact-popup h4 {
+            font-size: 1.25rem;
             font-weight: 600;
-            text-decoration: none;
-            transition: all 0.25s;
+            margin-bottom: 20px;
+            color: #0e2f44;
+            border-left: 5px solid #1f6e9f;
+            padding-left: 16px;
         }
 
-        .btn-primary {
-            background: #3b82f6;
-            color: #0b0f17;
-            border: 1px solid #3b82f6;
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+            color: #334e68;
+        }
+        .contact-item i {
+            width: 24px;
+            font-size: 1.2rem;
+            color: #1f6e9f;
+        }
+        .contact-item span {
+            font-size: 0.98rem;
+        }
+        .contact-divider {
+            height: 1px;
+            background: #e9edf2;
+            margin: 16px 0;
+        }
+        .small-note {
+            font-size: 0.85rem;
+            color: #7c8b9c;
+            margin-top: 8px;
+            text-align: right;
         }
 
-        .btn-primary:hover {
-            background: #2563eb;
-            border-color: #2563eb;
-            color: white;
-            box-shadow: 0 0 15px rgba(59,130,246,0.5);
+        main {
+            padding: 40px 0 80px;
         }
 
-        .btn-outline:hover {
-            background: rgba(59,130,246,0.1);
-            color: white;
+        .section-block {
+            margin-bottom: 70px;
+            scroll-margin-top: 90px;
         }
 
-        /* HERO 区域 */
-        .hero {
-            padding: 5rem 0 4rem 0;
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 32px;
+            color: #0c2b3e;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-title i {
+            color: #1f6e9f;
+            font-size: 1.9rem;
+        }
+
+        .card-list {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            text-align: center;
+            gap: 16px;
         }
 
-        .hero h1 {
-            font-size: 3.8rem;
-            font-weight: 700;
-            line-height: 1.1;
-            letter-spacing: -0.03em;
-            background: linear-gradient(to right, #ffffff, #b3d0ff, #5f9eff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            max-width: 900px;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero .highlight {
-            background: linear-gradient(145deg, #3b82f6, #9333ea);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            color: #9bb4d8;
-            max-width: 750px;
-            margin-bottom: 2.5rem;
-        }
-
-        .hero-buttons {
+        .rect-card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px 28px;
+            box-shadow: 0 6px 14px rgba(0, 30, 40, 0.04);
+            border: 1px solid #ebf0f5;
+            transition: all 0.2s;
             display: flex;
-            gap: 1.2rem;
-            flex-wrap: wrap;
+            align-items: center;
+            gap: 24px;
+        }
+        .rect-card:hover {
+            box-shadow: 0 16px 28px -8px rgba(18, 67, 112, 0.12);
+            border-color: #cbdae7;
+            transform: translateY(-2px);
+        }
+
+        .rect-icon {
+            background: #e5f0f7;
+            width: 48px;
+            height: 48px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
             justify-content: center;
-        }
-
-        /* 研究主题卡片区 */
-        .section-title {
-            font-size: 2.3rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            letter-spacing: -0.02em;
-        }
-
-        .section-title span {
-            border-bottom: 4px solid #3b82f6;
-            padding-bottom: 6px;
-        }
-
-        .subhead {
-            color: #7f9bc0;
-            font-size: 1.2rem;
-            margin-bottom: 3.5rem;
-        }
-
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin: 2.5rem 0 3rem;
-        }
-
-        .card {
-            background: rgba(18, 26, 40, 0.7);
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(59, 130, 246, 0.2);
-            border-radius: 32px;
-            padding: 2rem 1.8rem;
-            transition: transform 0.2s, border-color 0.2s, box-shadow 0.3s;
-            box-shadow: 0 20px 30px -15px rgba(0,0,0,0.5);
-        }
-
-        .card:hover {
-            border-color: #3b82f6;
-            transform: translateY(-6px);
-            box-shadow: 0 25px 35px -12px #1e3a8a66;
-        }
-
-        .card-icon {
-            font-size: 2.5rem;
-            color: #3b82f6;
-            margin-bottom: 1.5rem;
-        }
-
-        .card h3 {
-            font-size: 1.7rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            color: #ffffff;
-        }
-
-        .card p {
-            color: #b6c9ec;
-            margin-bottom: 1.8rem;
-        }
-
-        .tech-tag {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-        }
-
-        .tech-tag span {
-            background: rgba(59, 130, 246, 0.12);
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            color: #b8d1ff;
-            font-size: 0.8rem;
-            padding: 0.25rem 1rem;
-            border-radius: 30px;
-            font-weight: 500;
-        }
-
-        /* 特色展示区域 (模拟交通流/数据) */
-        .feature-section {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 3rem;
-            margin: 5rem 0;
-            background: rgba(16, 24, 40, 0.6);
-            border-radius: 48px;
-            padding: 3rem;
-            border: 1px solid rgba(59,130,246,0.2);
-        }
-
-        .feature-text {
-            flex: 1 1 300px;
-        }
-
-        .feature-text h2 {
-            font-size: 2.3rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-
-        .feature-text ul {
-            list-style: none;
-        }
-
-        .feature-text li {
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            color: #ccdfff;
-        }
-
-        .feature-text i {
-            color: #3b82f6;
-            width: 1.8rem;
+            color: #1f6e9f;
             font-size: 1.4rem;
         }
 
-        .feature-visual {
-            flex: 1 1 300px;
-            background: #0f172f;
-            border-radius: 32px;
-            padding: 2rem;
-            border: 1px solid #3b82f633;
-            box-shadow: 0 0 40px #1e3a8a33;
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
+        .rect-content {
+            flex: 1;
         }
-
-        /* 模拟的交通流图 纯css装饰 显得很科技 */
-        .traffic-sim {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .flow-row {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .flow-bar {
-            height: 18px;
-            background: linear-gradient(90deg, #1e40af, #3b82f6, #93c5fd);
-            border-radius: 40px;
-            width: 0%; /* 由行内样式设置 */
-            transition: width 0.2s;
-            box-shadow: 0 0 8px #3b82f6aa;
-        }
-
-        .flow-label {
-            width: 70px;
-            font-size: 0.9rem;
-            color: #9ab5e5;
-        }
-
-        .node-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 8px;
-            margin-top: 1rem;
-        }
-
-        .node {
-            aspect-ratio: 1/1;
-            background: #1e2a47;
-            border-radius: 8px;
-            border: 1px solid #2e3f70;
-            transition: all 0.15s;
-        }
-
-        .node.active {
-            background: #3b82f6;
-            box-shadow: 0 0 15px #3b82f6;
-            border-color: white;
-        }
-
-        /* 团队列表 */
-        .team-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2.5rem;
-            margin: 3rem 0;
-        }
-
-        .team-member {
-            text-align: center;
-            width: 170px;
-        }
-
-        .avatar {
-            background: linear-gradient(145deg, #15223b, #0f1a2f);
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin: 0 auto 1.2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid #3b82f6;
-            box-shadow: 0 0 30px #1e3a8a80;
-        }
-
-        .avatar i {
-            font-size: 3.5rem;
-            color: #b8d1ff;
-        }
-
-        .team-member h4 {
-            font-size: 1.3rem;
+        .rect-title {
+            font-size: 1.18rem;
             font-weight: 600;
-            color: white;
+            margin-bottom: 6px;
+            color: #0b2b40;
         }
-
-        .team-member p {
-            color: #7f9bc0;
+        .rect-meta {
+            color: #5f7d9c;
             font-size: 0.9rem;
+            display: flex;
+            gap: 28px;
+        }
+        .rect-meta i {
+            margin-right: 4px;
+            width: 16px;
+            color: #7795b0;
         }
 
-        /* CTA 尾部 */
-        .cta-section {
+        /* 团队介绍网格 */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 28px;
+            padding: 24px 16px 22px;
             text-align: center;
-            padding: 4rem 0;
-            margin: 2rem 0 3rem;
-            border-top: 1px solid #1f2b44;
-            border-bottom: 1px solid #1f2b44;
+            box-shadow: 0 10px 20px -5px rgba(0,32,64,0.06);
+            border: 1px solid #ecf2f9;
+            transition: transform 0.15s;
+        }
+        .team-card:hover {
+            transform: scale(1.02);
+            border-color: #bcd3e8;
         }
 
-        .cta-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.2rem;
+        /* 照片样式修改：使用img标签替代图标 */
+        .team-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 18px;
+            object-fit: cover;          /* 保证图片裁剪为圆形不变形 */
+            border: 3px solid white;
+            box-shadow: 0 4px 12px rgba(0,40,60,0.15);
+            background: #f0f5fa;        /* 图片加载时的背景色 */
+            display: block;
         }
 
-        .footer {
-            padding: 2rem 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #5f78a5;
-            font-size: 0.95rem;
-            border-top: 1px solid #1b253f;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .social-links a {
-            color: #6f8fc9;
+        .team-name {
+            font-weight: 600;
             font-size: 1.2rem;
-            transition: color 0.2s;
+            margin-bottom: 4px;
+            color: #113946;
         }
 
-        .social-links a:hover {
-            color: #3b82f6;
+        .team-role {
+            color: #1f6e9f;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+            letter-spacing: 0.3px;
         }
 
+        .team-desc {
+            color: #546e85;
+            font-size: 0.88rem;
+            padding: 0 4px;
+        }
+
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 26px;
+        }
+
+        .research-card {
+            background: white;
+            border-radius: 30px;
+            padding: 28px 20px 24px;
+            border: 1px solid #e3ecf5;
+            box-shadow: 0 10px 22px -14px rgba(27, 58, 112, 0.2);
+            transition: all 0.2s;
+            overflow: hidden;
+        }
+        .research-card:hover {
+            border-color: #b1cde0;
+            box-shadow: 0 20px 28px -16px #1a4e79;
+        }
+
+        .research-icon {
+            background: #123b50;
+            color: white;
+            width: 54px;
+            height: 54px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 22px;
+        }
+
+        .research-card h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #0b2f45;
+        }
+
+        .research-card p {
+            color: #475f73;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        footer {
+            background: #eef3f8;
+            padding: 24px 0;
+            text-align: center;
+            color: #5a728b;
+            font-size: 0.9rem;
+            border-top: 1px solid #dde5ed;
+        }
+
+        @media (max-width: 1100px) {
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .research-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
         @media (max-width: 700px) {
-            .navbar {
-                flex-direction: column;
-                gap: 1rem;
-                padding: 1rem;
+            .header-inner {
+                flex-wrap: wrap;
+                height: auto;
+                padding: 16px 0;
+                gap: 12px;
             }
-            .nav-links {
-                gap: 1.5rem;
+            .nav-menu {
+                order: 3;
+                width: 100%;
+                justify-content: center;
+                gap: 20px;
             }
-            .hero h1 {
-                font-size: 2.6rem;
+            .team-grid, .research-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
-<body class="bg-grid">
+<body>
+    <header>
+        <div class="container header-inner">
+            <div class="logo-area">
+                <div class="lab-icon"><i class="fas fa-traffic-light"></i></div>
+                <div class="lab-name">Deep <span>Traffic Lab</span></div>
+            </div>
 
-<!-- 固定导航 -->
-<nav class="navbar">
-    <div class="logo">
-        <i class="fas fa-project-diagram logo-icon"></i>
-        <span>Deep Traffic Lab</span>
-    </div>
-    <div class="nav-links">
-        <a href="#">Home</a>
-        <a href="#">Research</a>
-        <a href="#">Publications</a>
-        <a href="#">Team</a>
-        <a href="#">Join Us</a>
-    </div>
-    <a href="#" class="btn btn-primary"><i class="fa-regular fa-paper-plane" style="margin-right: 6px;"></i>Contact</a>
-</nav>
+            <nav class="nav-menu">
+                <a href="#home">主页</a>
+                <a href="#papers">最新论文</a>
+                <a href="#achievements">团队成果</a>
+                <a href="#team">团队介绍</a>
+                <a href="#research">研究领域</a>
+            </nav>
 
-<main class="container">
-    <!-- HERO 大标题 -->
-    <section class="hero">
-        <h1>Where deep learning <br> <span class="highlight">meets urban mobility</span></h1>
-        <p>Deep Traffic Lab 致力于利用人工智能重塑交通系统 —— 从微观驾驶博弈到宏观城市流量，构建安全、高效、绿色的未来交通。</p>
-        <div class="hero-buttons">
-            <a href="#" class="btn btn-primary btn-lg"><i class="fa-regular fa-compass"></i> 探索研究方向</a>
-            <a href="#" class="btn btn-outline"><i class="fa-regular fa-file-lines"></i> 最新论文</a>
-        </div>
-    </section>
-
-    <!-- 研究主题卡片区 -->
-    <div>
-        <h2 class="section-title"><span>核心领域</span> <span style="border-bottom: none; color: #567bb8;">· 深度交通</span></h2>
-        <div class="subhead">我们结合图神经网络、强化学习与数字孪生，攻克城市交通复杂挑战</div>
-    </div>
-
-    <div class="card-grid">
-        <div class="card">
-            <div class="card-icon"><i class="fas fa-car-side"></i></div>
-            <h3>神经交通流</h3>
-            <p>混合自动驾驶与人工驾驶的微观仿真，利用图神经网络预测拥堵模式，协调路口通行。</p>
-            <div class="tech-tag">
-                <span>GNN</span><span>Transformer</span><span>流量预测</span>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-icon"><i class="fas fa-robot"></i></div>
-            <h3>多智能体强化学习</h3>
-            <p>信号灯控制、车辆路径规划、动态收费——MARL 在大规模路网中的协同决策。</p>
-            <div class="tech-tag">
-                <span>RLlib</span><span>QMIX</span><span>PPO</span>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-icon"><i class="fas fa-city"></i></div>
-            <h3>城市数字孪生</h3>
-            <p>构建高保真虚拟城市，实时融合传感器数据，推演极端天气及拥堵调控策略。</p>
-            <div class="tech-tag">
-                <span>SUMO</span><span>Unity</span><span>数字孪生</span>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-icon"><i class="fas fa-chart-line"></i></div>
-            <h3>轨迹生成与理解</h3>
-            <p>基于扩散模型的轨迹生成，异常驾驶行为检测，可解释性轨迹聚类。</p>
-            <div class="tech-tag">
-                <span>Diffusion</span><span>VAE</span><span>可解释AI</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- 特色区域: 动态模拟效果 (纯css视觉元素) -->
-    <div class="feature-section">
-        <div class="feature-text">
-            <h2><i class="fas fa-bolt" style="color: #3b82f6; margin-right: 10px;"></i>实时推演 · 流量先知</h2>
-            <ul>
-                <li><i class="fas fa-check-circle"></i> 自适应交通信号控制 (MARL + 排队感知)</li>
-                <li><i class="fas fa-check-circle"></i> 高速路匝道合流博弈 — 社会最优与均衡</li>
-                <li><i class="fas fa-check-circle"></i> 拥堵溯源及干预措施的数字沙盘</li>
-                <li><i class="fas fa-check-circle"></i> 每15秒滚动预测全网路况</li>
-            </ul>
-            <div style="margin-top: 2rem;">
-                <a href="#" class="btn btn-primary">查看演示平台 <i class="fa-regular fa-arrow-right"></i></a>
-            </div>
-        </div>
-        <div class="feature-visual">
-            <!-- 用简单的进度条模拟交通流量 -->
-            <div style="display: flex; justify-content: space-between; color: #9bb4d8; margin-bottom: 12px;">
-                <span><i class="fa-regular fa-clock"></i> 15:30 实时流量</span>
-                <span>饱和度</span>
-            </div>
-            <div class="traffic-sim">
-                <div class="flow-row"><span class="flow-label">主干道A</span><div class="flow-bar" style="width: 78%;"></div><span>78%</span></div>
-                <div class="flow-row"><span class="flow-label">快速路B</span><div class="flow-bar" style="width: 92%;"></div><span>92%</span></div>
-                <div class="flow-row"><span class="flow-label">商圈C</span><div class="flow-bar" style="width: 45%;"></div><span>45%</span></div>
-                <div class="flow-row"><span class="flow-label">隧道D</span><div class="flow-bar" style="width: 30%;"></div><span>30%</span></div>
-            </div>
-            <!-- 简易路网节点 -->
-            <div style="margin-top: 20px;">
-                <div style="display: flex; justify-content: space-between; color: #9bb4d8;">
-                    <span>路网关键节点活跃度</span><span>⚡ 6个高负载</span>
-                </div>
-                <div class="node-grid">
-                    <div class="node active"></div><div class="node"></div><div class="node active"></div><div class="node"></div><div class="node active"></div><div class="node"></div>
-                    <div class="node"></div><div class="node active"></div><div class="node"></div><div class="node active"></div><div class="node"></div><div class="node"></div>
+            <div class="contact-wrapper">
+                <button class="contact-btn" id="contactToggleBtn">
+                    <i class="fas fa-envelope"></i> 联系我们
+                </button>
+                <div class="contact-popup" id="contactPopup">
+                    <h4>📬 联系方式</h4>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>北京市 · 智谷大厦 12F</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+86 (010) 8890 7765</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-paper-plane"></i>
+                        <span>contact@deeptraffic.cn</span>
+                    </div>
+                    <div class="contact-divider"></div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <span>周一至周五 9:00 – 18:00</span>
+                    </div>
+                    <div class="small-note">
+                        <i class="fas fa-arrow-right"></i> 欢迎交流合作
+                    </div>
                 </div>
             </div>
-            <p style="color: #6688bb; font-size: 0.85rem; margin-top: 0.8rem;"><i class="fa-regular fa-circle-check"></i> 基于真实城市数据校准</p>
         </div>
-    </div>
+    </header>
 
-    <!-- 团队简介 -->
-    <h2 class="section-title"><span>研究团队</span></h2>
-    <div class="subhead">来自顶尖高校及实验室的多学科成员，横跨交通工程、计算机科学与自动化</div>
-    <div class="team-grid">
-        <div class="team-member">
-            <div class="avatar"><i class="fas fa-user-graduate"></i></div>
-            <h4>陈 默</h4>
-            <p>Principal Investigator<br>多智能体强化学习</p>
-        </div>
-        <div class="team-member">
-            <div class="avatar"><i class="fas fa-user-astronaut"></i></div>
-            <h4>李 智慧</h4>
-            <p>图神经网络 / 流量预测</p>
-        </div>
-        <div class="team-member">
-            <div class="avatar"><i class="fas fa-user-ninja"></i></div>
-            <h4>Dr. Rivera</h4>
-            <p>网联自动驾驶协同</p>
-        </div>
-        <div class="team-member">
-            <div class="avatar"><i class="fas fa-user-tie"></i></div>
-            <h4>王 其峰</h4>
-            <p>数字孪生 & 仿真系统</p>
-        </div>
-        <div class="team-member">
-            <div class="avatar"><i class="fas fa-user-plus"></i></div>
-            <h4>12+ 成员</h4>
-            <p>博士生 / 工程师</p>
-        </div>
-    </div>
+    <main class="container">
+        <section id="home" class="section-block" style="min-height: 60px; scroll-margin-top: 100px;">
+            <div style="background: linear-gradient(130deg, #e2f0fa, #ffffff); border-radius: 48px; padding: 48px 40px; margin-bottom: 20px;">
+                <h1 style="font-size: 2.8rem; font-weight: 600; color: #0a3147;">Deep Traffic Lab</h1>
+                <p style="font-size: 1.3rem; color: #2e577b; max-width: 700px; margin-top: 16px;">探索数据驱动的未来交通 · 智能感知 · 车路协同 · 决策优化</p>
+                <div style="margin-top: 24px; display: flex; gap: 14px;">
+                    <span style="background: #0b2b40; color: white; padding: 8px 26px; border-radius: 60px; font-weight: 500;"><i class="fas fa-road"></i> 交通深度强化学习</span>
+                    <span style="background: #e3eef8; color: #1a4e6b; padding: 8px 26px; border-radius: 60px;"><i class="fas fa-robot"></i> 智能网联</span>
+                </div>
+            </div>
+        </section>
 
-    <!-- 招新 / 合作 -->
-    <div class="cta-section">
-        <h2>Drive the future with us</h2>
-        <p style="color: #b7cef0; max-width: 600px; margin: 0.5rem auto 2rem;">我们正在寻找对深度学习和交通研究充满热情的实习生、博士后与合作伙伴。</p>
-        <a href="#" class="btn btn-primary btn-lg" style="padding: 0.8rem 2.5rem;"><i class="fa-regular fa-envelope"></i> 加入实验室</a>
-        <a href="#" class="btn btn-outline" style="margin-left: 1rem;"><i class="fa-regular fa-handshake"></i> 工业合作</a>
-    </div>
-</main>
+        <section id="papers" class="section-block">
+            <h2 class="section-title"><i class="fas fa-file-alt"></i> 最新论文</h2>
+            <div class="card-list">
+                <div class="rect-card">
+                    <div class="rect-icon"><i class="fas fa-scroll"></i></div>
+                    <div class="rect-content">
+                        <div class="rect-title">Fast-charging station location problem: A two-phase approach with mathematical program with equilibrium constraints considering charging choice behaviour</div>
+                        <div class="rect-meta"><span><i class="fas fa-calendar-alt"></i> 2023.09</span><span><i class="fas fa-book-open"></i>Sustainable Cities and Society</span><span><i class="fas fa-user-graduate"></i>乔栋，王广民，徐猛</span></div>
+                    </div>
+                </div>
+                <div class="rect-card">
+                    <div class="rect-icon"><i class="fas fa-scroll"></i></div>
+                    <div class="rect-content">
+                        <div class="rect-title">Mathematical program with equilibrium constraints approach with genetic algorithm for joint optimization of charging station location and discrete transport network design</div>
+                        <div class="rect-meta"><span><i class="fas fa-calendar-alt"></i> 2024.08</span><span><i class="fas fa-book-open"></i>Transportation Letters</span><span><i class="fas fa-user-graduate"></i>乔栋，王广民，徐猛</span></div>
+                    </div>
+                </div>
+                <div class="rect-card">
+                    <div class="rect-icon"><i class="fas fa-scroll"></i></div>
+                    <div class="rect-content">
+                        <div class="rect-title">Mobile charging service optimization for electric vehicles</div>
+                        <div class="rect-meta"><span><i class="fas fa-calendar-alt"></i> 2025.01</span><span><i class="fas fa-book-open"></i>Transportation Letters</span><span><i class="fas fa-user-graduate"></i>乔栋，王广民，徐猛</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<!-- 页脚 -->
-<footer class="container">
-    <div class="footer">
-        <div>© 2025 Deep Traffic Lab · 深度交通实验室</div>
-        <div class="social-links">
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#"><i class="fab fa-x-twitter"></i></a>
-            <a href="#"><i class="fas fa-graduation-cap"></i></a>
+        <section id="achievements" class="section-block">
+            <h2 class="section-title"><i class="fas fa-trophy"></i> 团队成果</h2>
+            <div class="card-list">
+                <div class="rect-card">
+                    <div class="rect-icon"><i class="fas fa-award"></i></div>
+                    <div class="rect-content">
+                        <div class="rect-title">城市交通智能管控平台 · 已在5个示范区落地</div>
+                        <div class="rect-meta"><span><i class="fas fa-tags"></i> 技术转化</span><span><i class="fas fa-calendar-check"></i> 2024 完成</span></div>
+                    </div>
+                </div>
+                <div class="rect-card">
+                    <div class="rect-icon"><i class="fas fa-award"></i></div>
+                    <div class="rect-content">
+                        <div class="rect-title">CVPR 2024 自动驾驶挑战赛 "交通预测" 赛道冠军</div>
+                        <div class="rect-meta"><span><i class="fas fa-tags"></i> 竞赛荣誉</span><span><i class="fas fa-calendar-check"></i> 2024.06</span></div>
+                    </div>
+                </div>
+                <div class="rect-card">
+                    <div class="rect-icon"><i class="fas fa-award"></i></div>
+                    <div class="rect-content">
+                        <div class="rect-title">开源框架「TrafficFlow-Sim」GitHub 2.3k stars</div>
+                        <div class="rect-meta"><span><i class="fas fa-tags"></i> 开源贡献</span><span><i class="fas fa-calendar-check"></i> 持续迭代</span></div>
+                    </div>
+                </div>
+                <div class="rect-card">
+                    <div class="rect-icon"><i class="fas fa-award"></i></div>
+                    <div class="rect-content">
+                        <div class="rect-title">3项发明专利: 基于强化学习的信号配时方法</div>
+                        <div class="rect-meta"><span><i class="fas fa-tags"></i> 专利授权</span><span><i class="fas fa-calendar-check"></i> 2023-2024</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 团队介绍板块：照片采用 ./images/姓名.jpg -->
+        <section id="team" class="section-block">
+            <h2 class="section-title"><i class="fas fa-users"></i> 团队介绍</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="./images/qd.jpg" alt="林其光" class="team-photo" onerror="this.onerror=null; this.src='https://via.placeholder.com/100x100?text=Photo'">
+                    <div class="team-name">乔栋</div>
+                    <div class="team-role">讲师</div>
+                    <div class="team-desc">智能交通系统，大数据技术</div>
+                </div>
+                <div class="team-card">
+                    <img src="./images/rlj.jpg" alt="陈雪梅" class="team-photo" onerror="this.onerror=null; this.src='https://via.placeholder.com/100x100?text=Photo'">
+                    <div class="team-name">任丽军</div>
+                    <div class="team-role">助教</div>
+                    <div class="team-desc">人工智能，生成式模型</div>
+                </div>
+                <div class="team-card">
+                    <img src="./images/王驭风.jpg" alt="王驭风" class="team-photo" onerror="this.onerror=null; this.src='https://via.placeholder.com/100x100?text=Photo'">
+                    <div class="team-name">王驭风</div>
+                    <div class="team-role">研究员 / 仿真平台</div>
+                    <div class="team-desc">微观交通仿真，生成式模型，数字孪生</div>
+                </div>
+                <div class="team-card">
+                    <img src="./images/周晓璐.jpg" alt="周晓璐" class="team-photo" onerror="this.onerror=null; this.src='https://via.placeholder.com/100x100?text=Photo'">
+                    <div class="team-name">周晓璐</div>
+                    <div class="team-role">博士后 / 数据科学</div>
+                    <div class="team-desc">轨迹挖掘，大模型交通应用</div>
+                </div>
+                <div class="team-card">
+                    <img src="./images/张子轩.jpg" alt="张子轩" class="team-photo" onerror="this.onerror=null; this.src='https://via.placeholder.com/100x100?text=Photo'">
+                    <div class="team-name">张子轩</div>
+                    <div class="team-role">博士生 (四年级)</div>
+                    <div class="team-desc">多智能体强化学习，交通信号控制</div>
+                </div>
+                <div class="team-card">
+                    <img src="./images/李一苇.jpg" alt="李一苇" class="team-photo" onerror="this.onerror=null; this.src='https://via.placeholder.com/100x100?text=Photo'">
+                    <div class="team-name">李一苇</div>
+                    <div class="team-role">博士生 (三年级)</div>
+                    <div class="team-desc">轨迹预测，图神经网络</div>
+                </div>
+                <div class="team-card">
+                    <img src="./images/Maria Chen.jpg" alt="Maria Chen" class="team-photo" onerror="this.onerror=null; this.src='https://via.placeholder.com/100x100?text=Photo'">
+                    <div class="team-name">Maria Chen</div>
+                    <div class="team-role">联合培养博士</div>
+                    <div class="team-desc">交通流理论，宏观模型</div>
+                </div>
+                <div class="team-card">
+                    <img src="./images/赵一鸣.jpg" alt="赵一鸣" class="team-photo" onerror="this.onerror=null; this.src='https://via.placeholder.com/100x100?text=Photo'">
+                    <div class="team-name">赵一鸣</div>
+                    <div class="team-role">科研助理</div>
+                    <div class="team-desc">数据集构建，仿真实验</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="research" class="section-block">
+            <h2 class="section-title"><i class="fas fa-microscope"></i> 研究领域</h2>
+            <div class="research-grid">
+                <div class="research-card">
+                    <div class="research-icon"><i class="fas fa-traffic-light"></i></div>
+                    <h3>智能信号控制</h3>
+                    <p>基于深度强化学习的单点及干线信号协调，实时自适应配时，缓解城市拥堵。</p>
+                </div>
+                <div class="research-card">
+                    <div class="research-icon"><i class="fas fa-car-side"></i></div>
+                    <h3>车路协同与感知</h3>
+                    <p>融合路侧雷达、摄像头与网联车辆数据，构建高精度低延迟的驾驶态势图。</p>
+                </div>
+                <div class="research-card">
+                    <div class="research-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>交通流预测</h3>
+                    <p>时空图神经网络、扩散模型用于短时流量、速度与OD需求预测。</p>
+                </div>
+                <div class="research-card">
+                    <div class="research-icon"><i class="fas fa-robot"></i></div>
+                    <h3>多智能体仿真</h3>
+                    <p>搭建大规模并行仿真环境，用于训练与评估协作式交通管理策略。</p>
+                </div>
+                <div class="research-card">
+                    <div class="research-icon"><i class="fas fa-database"></i></div>
+                    <h3>交通大数据平台</h3>
+                    <p>分布式存储、实时处理及数据可视化，支撑城市交通数字孪生。</p>
+                </div>
+                <div class="research-card">
+                    <div class="research-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>韧性交通与安全</h3>
+                    <p>极端事件下的交通韧性评估，主动安全预警与应急调度。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Deep Traffic Lab · 深度交通实验室   |   地址: 北京市海淀区智谷大厦   |    <i class="fas fa-envelope"></i> contact@deeptraffic.cn</p>
         </div>
-        <div>contact@deeptraffic.ai  |  Last update: 2026.03.13</div>
-    </div>
-</footer>
+    </footer>
 
-<!-- 一个小的动态脚本来让节点模拟变化（可选，增加灵动感） -->
-<script>
-    (function() {
-        // 让流量条稍微增加一点动感 (只是视觉小趣味)
-        const bars = document.querySelectorAll('.flow-bar');
-        function randomizeBars() {
-            bars.forEach(bar => {
-                // 读取原始宽度数字 (例如 style.width 可能是 "78%")
-                let current = bar.style.width;
-                let raw = parseFloat(current) || 70;
-                // 小范围浮动 -3 ~ +3 但要保持在 15~98 之间
-                let shift = (Math.random() * 6 - 3);
-                let newVal = Math.min(98, Math.max(15, raw + shift));
-                bar.style.width = newVal + '%';
-                // 更新旁边数字 (父级flow-row里的最后一个span)
-                let row = bar.closest('.flow-row');
-                if (row) {
-                    let lastSpan = row.querySelector('span:last-child');
-                    if (lastSpan) lastSpan.innerText = Math.round(newVal) + '%';
+    <script>
+        (function() {
+            const contactBtn = document.getElementById('contactToggleBtn');
+            const popup = document.getElementById('contactPopup');
+
+            function togglePopup(e) {
+                e.stopPropagation();
+                popup.classList.toggle('show');
+            }
+
+            contactBtn.addEventListener('click', togglePopup);
+
+            document.addEventListener('click', function(event) {
+                if (!popup.contains(event.target) && !contactBtn.contains(event.target)) {
+                    popup.classList.remove('show');
                 }
             });
-        }
-        // 每6秒变化一点点，模拟实时流量波动
-        setInterval(randomizeBars, 6000);
 
-        // 小节点闪烁：偶尔激活/取消激活几个节点 (模拟拥堵变化)
-        const nodes = document.querySelectorAll('.node');
-        setInterval(() => {
-            nodes.forEach(node => {
-                // 10%概率翻转状态，保持动态感觉
-                if (Math.random() < 0.15) {
-                    node.classList.toggle('active');
-                }
+            popup.addEventListener('click', function(e) {
+                e.stopPropagation();
             });
-        }, 4000);
-    })();
-</script>
+
+            document.querySelectorAll('.nav-menu a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId && targetId.startsWith('#')) {
+                        e.preventDefault();
+                        const targetEl = document.querySelector(targetId);
+                        if (targetEl) {
+                            targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                        popup.classList.remove('show');
+                    }
+                });
+            });
+        })();
+    </script>
 </body>
 </html>
