@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Deep Traffic Lab | 交通大数据讲座 · 期次专栏</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(145deg, #f0f4fa 0%, #e6edf4 100%);
+            color: #1a2634;
+            line-height: 1.5;
+        }
+
+        /* 背景网格 */
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background-image:
+                linear-gradient(#cbdae9 1px, transparent 1px),
+                linear-gradient(90deg, #cbdae9 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 头部 */
+        .hero {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .lab-badge {
+            display: inline-block;
+            background: rgba(0, 102, 204, 0.12);
+            backdrop-filter: blur(4px);
+            padding: 0.3rem 1.2rem;
+            border-radius: 60px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #0066cc;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(0,102,204,0.2);
+        }
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #0b2b3f, #1e4a6e);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+        }
+        .subhead {
+            font-size: 1.2rem;
+            color: #2c4c6e;
+            max-width: 680px;
+            margin: 0.8rem auto 0;
+            border-left: 3px solid #2c7da0;
+            padding-left: 1rem;
+        }
+        .subhead i {
+            color: #2c7da0;
+        }
+
+        /* 卡片容器：每个卡片独占一行垂直排列 */
+        .cards-grid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            width: 100%;
+        }
+
+        /* 卡片样式 - 水平 flex 布局 (照片左侧，内容右侧) */
+        .lecture-card {
+            background: rgba(255, 255, 255, 0.96);
+            border-radius: 28px;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.12);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            width: 100%;
+            max-width: 980px;
+            margin: 0 auto;
+            border: 1px solid rgba(255,255,255,0.6);
+        }
+        .lecture-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 40px -16px rgba(0, 32, 64, 0.25);
+            background: #ffffff;
+        }
+
+        /* 卡片内部分为左右两栏 */
+        .card-inner {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        /* 左侧：矩形照片区域 */
+        .photo-side {
+            flex: 0 0 200px;
+            background: #eef2f7;
+            overflow: hidden;
+        }
+        .photo-side img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        .lecture-card:hover .photo-side img {
+            transform: scale(1.02);
+        }
+        /* 右侧：内容区域 */
+        .content-side {
+            flex: 1;
+            padding: 1.6rem 1.8rem 1.8rem 1.8rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 讲座期数标识 (醒目徽章) */
+        .episode-badge {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(105deg, #1e5f7a, #0f4057);
+            color: white;
+            padding: 0.25rem 1rem;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            width: fit-content;
+            margin-bottom: 0.9rem;
+            gap: 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        .episode-badge i {
+            font-size: 0.75rem;
+        }
+
+        /* 主讲人姓名 */
+        .speaker-name {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #0c3348;
+            margin-bottom: 0.2rem;
+            line-height: 1.2;
+        }
+
+        /* 讲座题目 */
+        .lecture-title {
+            font-size: 1.28rem;
+            font-weight: 700;
+            color: #005c8a;
+            margin: 0.6rem 0 0.7rem 0;
+            padding-bottom: 0.4rem;
+            border-bottom: 2px solid rgba(0, 92, 138, 0.2);
+            line-height: 1.35;
+        }
+
+        /* 主讲人介绍 */
+        .speaker-bio {
+            font-size: 0.88rem;
+            color: #2c4c6e;
+            background: #f0f5fa;
+            padding: 0.7rem 1rem;
+            border-radius: 20px;
+            margin: 0.5rem 0 1rem 0;
+            line-height: 1.45;
+        }
+
+        /* 地点 & 时间 */
+        .info-row {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            margin-bottom: 0.7rem;
+            color: #2c4c6e;
+        }
+        .info-row i {
+            width: 1.4rem;
+            font-size: 1rem;
+            color: #2c7da0;
+        }
+
+        /* 实验室链接样式 - 放在卡片底部 */
+        .lab-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #eef3fc;
+            padding: 0.45rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #1e6f9f;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            margin: 0.8rem 0 0.2rem 0;
+            width: fit-content;
+        }
+        .lab-link i {
+            font-size: 0.85rem;
+        }
+        .lab-link:hover {
+            background: #e0eaf3;
+            color: #0a4c73;
+            transform: translateX(2px);
+        }
+
+        /* 底部标签 */
+        .card-footer {
+            margin-top: 1rem;
+            padding-top: 0.6rem;
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+            border-top: 1px solid #e2e8f0;
+        }
+        .tag {
+            background: #eef3fc;
+            border-radius: 30px;
+            padding: 0.2rem 0.8rem;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: #1e6f9f;
+        }
+
+        /* 响应式: 手机屏幕下照片在上方，内容在下方 (改为列布局) */
+        @media (max-width: 680px) {
+            .card-inner {
+                flex-direction: column;
+            }
+            .photo-side {
+                flex: 0 0 auto;
+                width: 100%;
+                height: 220px;
+            }
+            .content-side {
+                padding: 1.4rem;
+            }
+            .speaker-name {
+                font-size: 1.4rem;
+            }
+            .lecture-title {
+                font-size: 1.15rem;
+            }
+            .container {
+                padding: 1.5rem 1rem;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* 页脚 */
+        .footer-note {
+            text-align: center;
+            margin-top: 3.5rem;
+            padding-top: 1.5rem;
+            font-size: 0.85rem;
+            color: #4e6b85;
+            border-top: 1px solid rgba(44, 125, 160, 0.2);
+        }
+        .footer-note i {
+            margin-right: 4px;
+        }
+    </style>
+</head>
+<body>
+<div class="bg-pattern"></div>
+<div class="container">
+    <div class="hero">
+        <div class="lab-badge">
+            <i class="fas fa-chart-line"></i> 智慧交通 · 数据驱动未来
+        </div>
+        <h1>Deep Traffic Lab</h1>
+        <div class="subhead">
+            <i class="fas fa-microphone-alt"></i> 交通大数据团队 · 前沿讲座系列
+        </div>
+
+    </div>
+
+    <div class="cards-grid">
+
+        <div class="lecture-card">
+            <div class="card-inner">
+                <div class="photo-side">
+                    <img src="images/dqy.jpg" alt="duqiyu">
+                </div>
+                <div class="content-side">
+                    <div class="episode-badge">
+                        <i class="fas fa-calendar-week"></i> 第 02 期 · 考研
+                    </div>
+                    <div class="speaker-name">杜绮钰</div>
+                    <div class="lecture-title">
+                        <i class="fas fa-database"></i> 主讲题目：考研经验分享
+                    </div>
+                    <div class="speaker-bio">
+                        <i class="fas fa-university"></i> 2025年毕业于吕梁学院计算机科学与技术系软件工程专业，2026年考研中国地质大学（武汉）电子信息专业
+                    </div>
+                    <div class="info-row">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span><strong>地点：</strong> 线上 (#腾讯会议：820-837-459)</span>
+                    </div>
+                    <div class="info-row">
+                        <i class="far fa-calendar-alt"></i>
+                        <span><strong>时间：</strong> 2026年4月23日（周四） 19:30 – 21:30</span>
+                    </div>
+                    <a href="https://qiaod.github.io/DTL/" class="lab-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-flask"></i> 访问交通大数据团队官网：https://qiaod.github.io/DTL
+                        <i class="fas fa-external-link-alt" style="font-size: 0.7rem;"></i>
+                    </a>
+                    <div class="card-footer">
+                        <span class="tag"><i class="fas fa-video"></i> 线上参会</span>
+                        <span class="tag"><i class="fas fa-globe"></i> 考研</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="lecture-card">
+            <div class="card-inner">
+                <div class="photo-side">
+                    <img src="images/wl.png" alt="wuliang">
+                </div>
+                <div class="content-side">
+                    <div class="episode-badge">
+                        <i class="fas fa-calendar-week"></i> 第 01 期 · 大学生学习与科研
+                    </div>
+                    <div class="speaker-name">吴亮</div>
+                    <div class="lecture-title">
+                        <i class="fas fa-database"></i> 主讲题目：大学生学习与科研分享
+                    </div>
+                    <div class="speaker-bio">
+                        <i class="fas fa-university"></i> 北京大学在读博士
+                    </div>
+                    <div class="info-row">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span><strong>地点：</strong> 线上 (腾讯会议)</span>
+                    </div>
+                    <div class="info-row">
+                        <i class="far fa-calendar-alt"></i>
+                        <span><strong>时间：</strong> 2025年12月02日 19:30 – 21:30</span>
+                    </div>
+                    <a href="https://qiaod.github.io/DTL/" class="lab-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-flask"></i> 访问交通大数据团队官网：https://qiaod.github.io/DTL
+                        <i class="fas fa-external-link-alt" style="font-size: 0.7rem;"></i>
+                    </a>
+                    <div class="card-footer">
+                        <span class="tag"><i class="fas fa-video"></i> 线上参会</span>
+                        <span class="tag"><i class="fas fa-globe"></i> 学习与科研</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+
+    <div class="footer-note">
+        <i class="fas fa-chalkboard-user"></i> Deep Traffic Lab 交通大数据团队 主办
+
+    </div>
+</div>
+</body>
+</html>
